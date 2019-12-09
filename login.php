@@ -2,7 +2,7 @@
   include_once("model/user.php");
   session_start();
   if(isset($_SESSION["user"])) {
-    header("location:baiso4.php");
+    header("location:admin_blog.php");
   }
   $information = "Vui lòng đăng nhập để tiếp tục";
   if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -12,7 +12,7 @@
     if($user != null) {
       // Set session variables
       $_SESSION["user"] = serialize($user);
-      header("location:baiso4.php");
+      header("location:admin_blog.php");
     }
     else {
       $information = "Tên đăng nhập hoặc mật khẩu không đúng";

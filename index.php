@@ -1,1 +1,1 @@
-<?php header("location:baiso4.php") ?>   
+<?php header("location:admin_blog.php") ?>   

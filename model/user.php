@@ -13,7 +13,7 @@ class User {
     }
 
     static function connectToDB() {
-        $con = new mysqli("localhost:3308", "root", "", "Contact");
+        $con = new mysqli("localhost:3308", "root", "", "blog");
         $con->set_charset("utf8");
         if($con->connect_error)
             die("Ket noi that bai khi tao moi. Chi tiet: " . $con->connect_error);
@@ -35,6 +35,20 @@ class User {
         if($result->num_rows > 0) {
             while($row = $result->fetch_assoc()){
                 $user = new User($row["ID"], $row["UserName"],$row["PassWord"],$row["FullName"]);
+                return $user;
+            }
+        }
+        $con->close();
+    }
+
+    static function getUserByID($id) {
+        $con = User::connectToDB();
+        $sql = "SELECT * FROM User WHERE User.ID = $id";
+        $result = $con->query($sql);
+        if($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()){
+                $user = new User($row["ID"], $row["UserName"],$row["PassWord"],$row["FullName"]);
+                $con->close();
                 return $user;
             }
         }
