@@ -313,7 +313,7 @@
             </div>
             <?php }} ?>
             <p>
-              <a href="#" class="more">Xem thêm <span class="icon-keyboard_arrow_right"></span></a>
+              <a href="blog_category.php?category_id=<?php echo $category->id ?>" class="more">Xem thêm <span class="icon-keyboard_arrow_right"></span></a>
             </p>
           </div>
 
